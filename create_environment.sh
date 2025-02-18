@@ -1,11 +1,15 @@
 #!/bin/bash
+# This script creates the reminder app and all the files needed to make it work.
 
+# Request the uuser to enter their name and create a directory with the input name.
 read -p "Enter your name: " name;
 mkdir submission_reminder_$name;
 cd submission_reminder_$name;
 
+# Create the directories that will hold different files for the reminder app.
 mkdir app modules assets config
 
+# Create each file, with its correct path and put its respective contents into the created files.
 cat > app/reminder.sh << 'EOF'
 #!/bin/bash
 
@@ -72,4 +76,8 @@ cd app/
 ./reminder.sh
 EOF
 
+# Make all your created files executable.
 chmod +x app/reminder.sh modules/functions.sh assets/submissions.txt config/config.env startup.sh
+
+# Display a message for a successful code execution.
+echo "Environment successfully created."
